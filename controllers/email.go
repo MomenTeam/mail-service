@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/MomenTeam/consumer-ms/models"
 	"github.com/gin-gonic/gin"
 	"gopkg.in/gomail.v2"
 )
@@ -20,15 +21,24 @@ type Information struct {
 	Name    string `json:"name"`
 	Surname string `json:"surname"`
 	Email   string `json:"email"`
-	Type    string `json:"type"`
+	Type    int    `json:"type"`
+}
+
+func getEmailTemplate(mailType int) (string, error) {
+	template, err := models.ReadTemplate(mailType)
+	if err != nil {
+		return "", err
+	}
+	return template, err
 }
 
 func send(information Information) (result Information, err error) {
+	template, _ := models.ReadTemplate(information.Type)
 	m := gomail.NewMessage()
 	m.SetHeader("From", Username)
 	m.SetHeader("To", information.Email)
 	m.SetHeader("Subject", "Team Momentum.")
-	m.SetBody("text/html", "Hello World!")
+	m.SetBody("text/html", template)
 	d := gomail.NewDialer(Host, 465, Username, Password)
 
 	if err := d.DialAndSend(m); err != nil {
@@ -38,6 +48,7 @@ func send(information Information) (result Information, err error) {
 	return information, nil
 }
 
+// SendEmail function
 func SendEmail(c *gin.Context) {
 	information := &Information{}
 	c.BindJSON(&information)
