@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/MomenTeam/consumer-ms/database"
-	"github.com/MomenTeam/consumer-ms/routes"
+	"github.com/MomenTeam/mail-service/database"
+	"github.com/MomenTeam/mail-service/routes"
 	"github.com/gin-gonic/gin"
 )
 

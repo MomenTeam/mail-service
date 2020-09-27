@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/MomenTeam/consumer-ms/models"
+	"github.com/MomenTeam/mail-service/models"
 	"github.com/gin-gonic/gin"
 	"gopkg.in/gomail.v2"
 )

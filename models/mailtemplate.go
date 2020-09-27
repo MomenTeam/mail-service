@@ -3,7 +3,7 @@ package models
 import (
 	"context"
 
-	"github.com/MomenTeam/consumer-ms/database"
+	"github.com/MomenTeam/mail-service/database"
 	"gopkg.in/mgo.v2/bson"
 )
 

@@ -3,7 +3,7 @@ package routes
 import (
 	"net/http"
 
-	"github.com/MomenTeam/consumer-ms/controllers"
+	"github.com/MomenTeam/mail-service/controllers"
 	"github.com/gin-gonic/gin"
 )
 

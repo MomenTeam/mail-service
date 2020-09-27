@@ -1,4 +1,4 @@
-module github.com/MomenTeam/consumer-ms
+module github.com/MomenTeam/mail-service
 
 go 1.14
 
